@@ -16,7 +16,7 @@ export class NACDemo extends LitElement {
               workflowUrl: {
                 type: 'string',
                 title: 'Workflow URL',
-                description: 'Workflow 3333 URL with Token'
+                description: 'Workflow URL with Token'
               },
               startData: {
                 type: 'string',
