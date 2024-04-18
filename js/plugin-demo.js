@@ -60,7 +60,13 @@ export class NACDemo extends LitElement {
       display: block;
     }
     .button {
-      background-color: var(-ntx-form-theme-color-primary);
+    /*  background-color: var(-ntx-form-theme-color-primary) */
+    background-color: #006BD6;
+    color: #FFFFFF;
+    border-color: #006BD6;
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    border-radius: 4px;
     }
   `;
 
