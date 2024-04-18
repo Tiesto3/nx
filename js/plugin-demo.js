@@ -7,7 +7,7 @@ export class NACDemo extends LitElement {
     static getMetaConfig() {    
       return {
           controlName: 'NAC Async Workflow',
-          fallbackDisableSubmit: false,
+          fallbackDisableSubmit: false,A
           iconUrl: "",
           groupName: 'Actions',
           version: '1.0',
@@ -113,7 +113,7 @@ render() {
   ` : ``;
   
   return html`
-    ${saveButton}<p>abcd</p>
+    ${saveButton}
   `;
 }
 //#endregion
