@@ -113,7 +113,7 @@ startWorkflow() {
 //#region Rendering
 render() {
   const saveButton = this.workflowUrl ? html`
-    <button class="nx-theme-button-1" @click=${this.startWorkflow}>
+    <button class="button" @click=${this.startWorkflow}>
           Start Workflow                     
     </button>
   ` : ``;
