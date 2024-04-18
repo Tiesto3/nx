@@ -60,7 +60,7 @@ export class NACDemo extends LitElement {
       display: block;
     }
     .button {
-      background-color: var(--ntx-form-theme-color-primary);
+      background-color: var(-ntx-form-theme-color-primary);
     }
   `;
 
