@@ -114,7 +114,7 @@ startWorkflow() {
 render() {
   const saveButton = this.workflowUrl ? html`
     <button class="button" @click=${this.startWorkflow}>
-          Start Workflow                     
+          Save                     
     </button>
   ` : ``;
   
