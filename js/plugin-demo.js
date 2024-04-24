@@ -126,4 +126,4 @@ render() {
   
 }
 
-customElements.define('plugin-demo2', NACDemo);
+customElements.define('plugin-demo', NACDemo);
