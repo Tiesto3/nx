@@ -10,7 +10,7 @@ export class NACDemo extends LitElement {
           fallbackDisableSubmit: false,
           iconUrl: "",
           groupName: 'Actions',
-          version: '2.2',
+          version: '2.3',
           description: 'Async workflow.',
           properties: {
               workflowUrl: {
@@ -31,7 +31,7 @@ export class NACDemo extends LitElement {
                 isValueField: true
               },
               boolean: {
-                type: 'boolean',
+                type: 'string',
                 title: 'boolean',
                 description: 'boolean',
                 isValueField: true
@@ -117,13 +117,13 @@ startWorkflow() {
 
 
 
+
 //#endregion
 
 //#region Rendering
 render() {
-
-  const saveButton = this.workflowUrl ? html`
-  <  <button class="button" @click=${this.startWorkflow}>
+   const saveButton = this.workflowUrl ? html`
+   <button class="button" @click=${this.startWorkflow}>
           Save                     
     </button>
   ` : ``;
