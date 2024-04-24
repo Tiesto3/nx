@@ -10,7 +10,7 @@ export class NACDemo extends LitElement {
           fallbackDisableSubmit: false,
           iconUrl: "",
           groupName: 'Actions',
-          version: '1.4',
+          version: '1.2',
           description: 'Async workflow.',
           properties: {
               workflowUrl: {
@@ -108,17 +108,17 @@ startWorkflow() {
   });
 }
 
+
+
 //#endregion
 
 //#region Rendering
-// TA remove    <button class="button" @click=${this.startWorkflow}>
-//                   Save                     
-//                   </button> 
 render() {
+
   const saveButton = this.workflowUrl ? html`
-    typeof Instance === "abc"
-       ${this.startWorkflow}>
+  <  <button class="button" @click=${this.startWorkflow}>
           Save                     
+    </button>
   ` : ``;
   
   return html`
