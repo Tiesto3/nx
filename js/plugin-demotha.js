@@ -6,7 +6,7 @@ export class NACDemo extends LitElement {
     //#region Plugin contract information
     static getMetaConfig() {    
       return {
-          controlName: 'NAC Async Workflow',
+          controlName: 'NAC Async Workflow THA',
           fallbackDisableSubmit: false,
           iconUrl: "",
           groupName: 'Actions',
@@ -126,4 +126,4 @@ render() {
   
 }
 
-customElements.define('plugin-demota1', NACDemo);
+customElements.define('plugin-demotha', NACDemo);
