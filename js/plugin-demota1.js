@@ -10,7 +10,7 @@ export class NACDemo extends LitElement {
           fallbackDisableSubmit: false,
           iconUrl: "",
           groupName: 'Actions',
-          version: '1.1',
+          version: '1.2',
           description: 'Async workflow.',
           properties: {
               workflowUrl: {
@@ -126,4 +126,4 @@ render() {
   
 }
 
-customElements.define('plugin-demo', NACDemo);
+customElements.define('plugin-demota1', NACDemo);
