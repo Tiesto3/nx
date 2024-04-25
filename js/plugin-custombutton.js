@@ -11,7 +11,7 @@ export class ButtonSaving extends LitElement {
            fallbackDisableSubmit: false,
            iconUrl: "",
            groupName: 'Actions',
-           version: '2.90',
+           version: '3.10',
            description: 'Custom Action workflow.',
            properties: {
                workflowUrl: {
@@ -78,10 +78,30 @@ export class ButtonSaving extends LitElement {
        `;
      }
 
-     startWorflow()
-     {
-        console.log('Start Workflow');
-     }
+     startWorkflow() {
+      const apiURL = this.workflowUrl;
+    
+      fetch(this.workflowUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'text/plain'
+        },
+        body: this.startData
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error starting Workflow');
+        }
+        return response.json();
+      })
+      .then(data => {
+        this.responseMessage = `Start Workflow Successful: ${JSON.stringify(data)}`;  
+      })
+      .catch(error => {
+        this.responseMessage = `Start Workflow Failed: ${error.message}`;
+      });
+    }
 
      handleClick(e) 
      {
