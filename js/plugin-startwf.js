@@ -1,16 +1,16 @@
 import {LitElement, html,css} from 'lit';
 
-export class ButtonSave extends LitElement {
+export class ButtonSaving extends LitElement {
 
 
     //#region Plugin contract information
     static getMetaConfig() {    
        return {
-           controlName: 'plugin-custom-button-save',
+           controlName: 'plugin-custombutton',
            fallbackDisableSubmit: false,
            iconUrl: "",
            groupName: 'Actions',
-           version: '1.3',
+           version: '2.00',
            description: 'Custom Action workflow.',
            properties: {
                workflowUrl: {
@@ -87,4 +87,4 @@ export class ButtonSave extends LitElement {
        this.Instance='Hello Man';
      }     
    }
-   customElements.define('plugin-custom-button-save', ButtonSave);
+   customElements.define('plugin-custombutton', ButtonSaving);
