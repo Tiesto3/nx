@@ -11,7 +11,7 @@ export class ButtonSaving extends LitElement {
            fallbackDisableSubmit: false,
            iconUrl: "",
            groupName: 'Actions',
-           version: '7.0',
+           version: '8.80',
            description: 'Custom Action workflow.',
            properties: {
                workflowUrl: {
@@ -78,6 +78,7 @@ export class ButtonSaving extends LitElement {
           console.log('Instance modified ',this.Instance)
           if(this.Instance=='10')
           {
+            console.log('Call the WF');
             this.startWorflow();
           }
         }
@@ -103,10 +104,6 @@ export class ButtonSaving extends LitElement {
        `;
      }
 
-     startWorflow()
-     {
-       this.startWorflow();
-     }
 
      handleClick(e) 
      {
