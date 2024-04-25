@@ -11,7 +11,7 @@ export class ButtonSaving extends LitElement {
            fallbackDisableSubmit: false,
            iconUrl: "",
            groupName: 'Actions',
-           version: '8.80',
+           version: '9.80',
            description: 'Custom Action workflow.',
            properties: {
                workflowUrl: {
@@ -46,9 +46,10 @@ export class ButtonSaving extends LitElement {
        this.Instance='Test'
      }
    
-     startWorkflow() {
+     startWorkflow() 
+     {
       const apiURL = this.workflowUrl;
-    
+      console.log('Running the WF '+apiURL);
       fetch(this.workflowUrl, {
         method: 'POST',
         headers: {
