@@ -11,7 +11,7 @@ export class ButtonSaving extends LitElement {
            fallbackDisableSubmit: false,
            iconUrl: "",
            groupName: 'Actions',
-           version: '3.10',
+           version: '7.0',
            description: 'Custom Action workflow.',
            properties: {
                workflowUrl: {
@@ -46,6 +46,31 @@ export class ButtonSaving extends LitElement {
        this.Instance='Test'
      }
    
+     startWorkflow() {
+      const apiURL = this.workflowUrl;
+    
+      fetch(this.workflowUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'text/plain'
+        },
+        body: this.startData
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error starting Workflow');
+        }
+        return response.json();
+      })
+      .then(data => {
+        this.responseMessage = `Start Workflow Successful: ${JSON.stringify(data)}`;  
+      })
+      .catch(error => {
+        this.responseMessage = `Start Workflow Failed: ${error.message}`;
+      });
+    }
+
      updated(changedProperties)
      {
         if (changedProperties.has('Instance')) 
@@ -78,30 +103,10 @@ export class ButtonSaving extends LitElement {
        `;
      }
 
-     startWorkflow() {
-      const apiURL = this.workflowUrl;
-    
-      fetch(this.workflowUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'text/plain'
-        },
-        body: this.startData
-      })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Error starting Workflow');
-        }
-        return response.json();
-      })
-      .then(data => {
-        this.responseMessage = `Start Workflow Successful: ${JSON.stringify(data)}`;  
-      })
-      .catch(error => {
-        this.responseMessage = `Start Workflow Failed: ${error.message}`;
-      });
-    }
+     startWorflow()
+     {
+       this.startWorflow();
+     }
 
      handleClick(e) 
      {
