@@ -1,91 +1,152 @@
 import { LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
-//import {LitElement, html,css} from 'lit';
+//import { LitElement, html, css } from 'lit';
 
-export class ButtonSaving extends LitElement {
-
+export class NACDemo100 extends LitElement {
 
     //#region Plugin contract information
     static getMetaConfig() {    
-       return {
-           controlName: 'plugin-custombutton',
-           fallbackDisableSubmit: false,
-           iconUrl: "",
-           groupName: 'Actions',
-           version: '2.10',
-           description: 'Custom Action workflow.',
-           properties: {
-               workflowUrl: {
-                 type: 'string',
-                 title: 'Workflow URL',
-                 description: 'Workflow URL with Token'
-               },
-               startData: {
-                 type: 'string',
-                 title: 'Start Data',
-                 description: 'startData',
-                 maxLength: 32000
-               },
-               Instance: {
-                 type: 'string',
-                 title: 'Instance',
-                 description: 'instance'
-               }
-           }
-       };
-     }
-     //#endregion
-   
-     static properties = {
-      workflowUrl: {type: String },
-      startData: {type: String },
-      Instance: {type: String }
-     };
-   
-     constructor() {
-       super();
-       this.Instance='Test'
-     }
-   
-     updated(changedProperties)
-     {
-        if (changedProperties.has('Instance')) 
-        {
-          console.log('Instance modified ',this.Instance)
-          if(this.Instance=='10')
-          {
-            this.startWorflow();
+      return {
+          controlName: 'plugin-startwf',
+          fallbackDisableSubmit: false,
+          iconUrl: "",
+          groupName: 'Actions',
+          version: '5.10',
+          description: 'Async workflow.',
+          properties: {
+              workflowUrl: {
+                type: 'string',
+                title: 'Workflow URL',
+                description: 'Workflow URL with Token'
+              },
+              startData: {
+                type: 'string',
+                title: 'Start Data',
+                description: 'startData',
+                maxLength: 32000
+              },
+              instance: {
+                type: 'string',
+                title: 'instance',
+                description: 'instance'
+               // isValueField: true
+              }
+          },
+          events: ["ntx-value-change"],
+          standardProperties: {
+              fieldLabel: true,
+              description: true
           }
-        }
-     }
+      };
+    }
+    //#endregion
+  
+  static properties = {
+    workflowUrl: { type: String },
+    startData: { type: String },
+    instance: { type: String }
+  };
 
-     render() {
-       return html`
-          <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          crossorigin="anonymous"
-          />
-          <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-          crossorigin="anonymous"
-          ></script>
+  constructor() {
+    super();
+    this.instance='Test'
+  }
 
-          <p>Welcome to the Lit tutorial!</p>
-          <p>This is the ${this.version} code.</p>
-          <button type="button" class="btn btn-medium nx-theme-input-1 save-button nx-theme-button-2 ng-star-inserted"          
-          @click=${this.handleClick}>Click me!</button>   
-       `;
-     }
-
-     startWorflow()
+  updated(changedProperties)
+  {
+     if (changedProperties.has('instance')) 
      {
-        console.log('Start Workflow');
+       console.log('instance modified ',this.instance)
+       if(this.instance=='10')
+       {
+         this.startWorflow();
+       }
      }
+  }
+  constructor() {
+    super();
+    this.isStarting = false;
+  }
 
-     handleClick(e) 
-     {
-       this.Instance='Hello Man';
-     }     
-   }
-   customElements.define('plugin-custombutton', ButtonSaving);
+  async connectedCallback() {
+    super.connectedCallback();
+  }
+
+  static styles = css`
+    :host {
+      display: block;
+    }
+    .button {
+    /*  background-color: var(-ntx-form-theme-color-primary) */
+    background-color: #006BD6;
+    color: #FFFFFF;
+    border-color: #006BD6;
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+    border-radius: 4px;
+    }
+  `;
+
+onChange(e) {
+  const args = {
+      bubbles: true,
+      cancelable: false,
+      composed: true,
+      // value coming from input change event. 
+      detail: e.target.value,
+  };
+  const event = new CustomEvent('ntx-value-change', args);
+  this.dispatchEvent(event);
+}
+
+//#region Functions
+
+
+//#endregion
+
+//#region Rendering
+render() {
+  const saveButton = this.workflowUrl ? html`
+    <button class="button" @click=${this.startWorkflow}>
+          Save                     
+    </button>
+  ` : ``;
+  
+  return html`
+    ${saveButton}<p>123</p>
+  `;
+}
+
+startWorkflow() {
+  const apiURL = this.workflowUrl;
+
+  fetch(this.workflowUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'text/plain'
+    },
+    body: this.startData
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Error starting Workflow');
+    }
+    return response.json();
+  })
+  .then(data => {
+    this.responseMessage = `Start Workflow Successful: ${JSON.stringify(data)}`;  
+  })
+  .catch(error => {
+    this.responseMessage = `Start Workflow Failed: ${error.message}`;
+  });
+}
+
+handleClick(e) 
+{
+  this.instance='Hello Man';
+}     
+//#endregion
+  
+}
+
+customElements.define('plugin-startwf', NACDemo100);
