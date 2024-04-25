@@ -1,4 +1,5 @@
-import {LitElement, html,css} from 'lit';
+import { LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
+//import {LitElement, html,css} from 'lit';
 
 export class ButtonSaving extends LitElement {
 
@@ -10,7 +11,7 @@ export class ButtonSaving extends LitElement {
            fallbackDisableSubmit: false,
            iconUrl: "",
            groupName: 'Actions',
-           version: '2.00',
+           version: '2.10',
            description: 'Custom Action workflow.',
            properties: {
                workflowUrl: {
