@@ -80,7 +80,7 @@ export class ButtonSaving extends LitElement {
           if(this.Instance=='10')
           {
             console.log('Call the WF');
-            this.startWorflow();
+            this.startWorkflow();
           }
         }
      }
