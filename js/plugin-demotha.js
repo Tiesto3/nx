@@ -10,7 +10,7 @@ export class NACDemo extends LitElement {
           fallbackDisableSubmit: false,
           iconUrl: "",
           groupName: 'Actions',
-          version: '3.6 Id',
+          version: '3.7 button click',
           description: 'Async workflow.',
           properties: {
               workflowUrl: {
@@ -24,7 +24,7 @@ export class NACDemo extends LitElement {
                 description: 'startData',
                 maxLength: 32000
               },
-              instance: {
+              Instance: {
                 type: 'string',
                 title: 'Instance',
                 description: 'instance',
@@ -43,12 +43,13 @@ export class NACDemo extends LitElement {
   static properties = {
     workflowUrl: { type: String },
     startData: { type: String },
-    instance: { type: String }
+    Instance: { type: String }
   };
 
   constructor() {
     super();
     this.isStarting = false;
+    this.Instance= 'test';
   }
 
   async connectedCallback() {
@@ -110,17 +111,13 @@ startWorkflow() {
 
 //#endregion
 
-updated(changedProperties) {
-    changedProperties.forEach((oldValue, propName) => 
-    {
-        if (propName == 'instance')
-        {
-            console.log('Current Value',this.instance)<
-            console.log(`${propName} changed. oldValue: ${oldValue}`);
-            //startWorkflow();
-        }
-    });
-  }
+updated(changedProperties)
+{
+   if (changedProperties.has('Instance'))
+   {
+     console.log('Instance modified ',this.Instance)
+   }
+}
 
 //#region Rendering
 render() {
