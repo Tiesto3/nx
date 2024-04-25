@@ -1,7 +1,7 @@
 import { LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 //import { LitElement, html, css } from 'lit';
 
-export class NACDemo100 extends LitElement {
+export class NACDemoo extends LitElement {
 
     //#region Plugin contract information
     static getMetaConfig() {    
@@ -10,7 +10,7 @@ export class NACDemo100 extends LitElement {
           fallbackDisableSubmit: false,
           iconUrl: "",
           groupName: 'Actions',
-          version: '5.10',
+          version: '6.10',
           description: 'Async workflow.',
           properties: {
               workflowUrl: {
@@ -149,4 +149,4 @@ handleClick(e)
   
 }
 
-customElements.define('plugin-startwf', NACDemo100);
+customElements.define('plugin-startwf', NACDemoo);
