@@ -10,7 +10,7 @@ export class NACDemo extends LitElement {
           fallbackDisableSubmit: false,
           iconUrl: "",
           groupName: 'Actions',
-          version: '3.3',
+          version: '3.4',
           description: 'Async workflow.',
           properties: {
               workflowUrl: {
@@ -24,7 +24,7 @@ export class NACDemo extends LitElement {
                 description: 'startData',
                 maxLength: 32000
               },
-              value: {
+              instance: {
                 type: 'string',
                 title: 'Instance',
                 description: 'instance',
@@ -111,8 +111,14 @@ startWorkflow() {
 //#endregion
 
 updated(changedProperties) {
-    changedProperties.forEach((oldValue, propName) => {
-      console.log(`${propName} changed. oldValue: ${oldValue}`);
+    changedProperties.forEach((oldValue, propName) => 
+    {
+        if (propName == 'instance')
+        {
+            console.log('Current Value',this.instance)<
+            console.log(`${propName} changed. oldValue: ${oldValue}`);
+            //startWorkflow();
+        }
     });
   }
 
