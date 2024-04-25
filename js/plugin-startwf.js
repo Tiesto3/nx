@@ -1,16 +1,16 @@
-import { LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
-//import { LitElement, html, css } from 'lit';
+//import { LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
+import { LitElement, html, css } from 'lit';
 
-export class NACDemo extends LitElement {
+export class NACDemo100 extends LitElement {
 
     //#region Plugin contract information
     static getMetaConfig() {    
       return {
-          controlName: 'NAC Start WF',
+          controlName: 'plugin-startwf',
           fallbackDisableSubmit: false,
           iconUrl: "",
           groupName: 'Actions',
-          version: '4.0',
+          version: '4.1',
           description: 'Async workflow.',
           properties: {
               workflowUrl: {
@@ -27,8 +27,8 @@ export class NACDemo extends LitElement {
               instance: {
                 type: 'string',
                 title: 'instance',
-                description: 'instance',
-                isValueField: true
+                description: 'instance'
+               // isValueField: true
               }
           },
           events: ["ntx-value-change"],
@@ -99,6 +99,23 @@ onChange(e) {
 }
 
 //#region Functions
+
+
+//#endregion
+
+//#region Rendering
+render() {
+  const saveButton = this.workflowUrl ? html`
+    <button class="button" @click=${this.startWorkflow}>
+          Save                     
+    </button>
+  ` : ``;
+  
+  return html`
+    ${saveButton}<p>123</p>
+  `;
+}
+
 startWorkflow() {
   const apiURL = this.workflowUrl;
 
@@ -124,22 +141,12 @@ startWorkflow() {
   });
 }
 
-//#endregion
-
-//#region Rendering
-render() {
-  const saveButton = this.workflowUrl ? html`
-    <button class="button" @click=${this.startWorkflow}>
-          Save                     
-    </button>
-  ` : ``;
-  
-  return html`
-    ${saveButton}<p>123</p>
-  `;
-}
+handleClick(e) 
+{
+  this.instance='Hello Man';
+}     
 //#endregion
   
 }
 
-customElements.define('plugin-startwf', NACDemo);
+customElements.define('plugin-startwf', NACDemo100);
