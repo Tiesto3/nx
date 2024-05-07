@@ -98,7 +98,6 @@ export class ButtonSaving extends LitElement {
           crossorigin="anonymous"
           ></script>
 
-          <p>Welcome to the Lit tutorial!</p>
           <p>This is the ${this.version} code.</p>
           <button type="button" class="btn btn-medium nx-theme-input-1 save-button nx-theme-button-2 ng-star-inserted"          
           @click=${this.handleClick}>Click me!</button>   
