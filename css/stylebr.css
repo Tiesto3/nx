@@ -1,0 +1,4 @@
+.theme-entry h2 {
+    color: #d70000;
+}
+.theme-entry * { --main-font-family: "Comic Sans MS" !important;}
