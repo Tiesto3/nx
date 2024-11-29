@@ -12,3 +12,9 @@
     font-display: swap;
 }
 /* https://tiesto3.github.io/nx/css/ */
+
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab.selected {
+text-decoration: underline;
+text-decoration-color: red;
+text-decoration-thickness: 5px;
+}
