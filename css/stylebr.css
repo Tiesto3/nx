@@ -7,7 +7,7 @@
 @font-face {
     font-family: 'BLK Fort';
     src: url('https://tiesto3.github.io/nx/css/BLKFort-Book.woff2') format('woff2'),
-        url('BLKFort-Book.woff') format('woff');
+        url('https://tiesto3.github.io/nx/css/BLKFort-Book.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
