@@ -1,9 +1,9 @@
-/* V0.4 */
-/*.theme-entry h2 {    color: #d70000 !important; } */
+/* V0.5 */
+.theme-entry h2 {    color: #d70000 !important; } 
 
 /* .theme-entry * { --main-font-family: "Comic Sans MS" !important;} */
 
-.theme-entry { --heading2-text-color: "red";}
+/*.theme-entry { --heading2-text-color: "red";} */
 
 @font-face {
     font-family: 'BLK Fort';
