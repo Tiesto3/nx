@@ -1,7 +1,6 @@
-.theme-entry h2 {
-    color: #d70000 !important;
-}
-.theme-entry * { --main-font-family: "Comic Sans MS" !important;}
+/*.theme-entry h2 {    color: #d70000 !important; } */
+
+/* .theme-entry * { --main-font-family: "Comic Sans MS" !important;} */
 
 .theme-entry { --heading2-text-color: "red";}
 
