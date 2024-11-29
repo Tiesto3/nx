@@ -16,5 +16,5 @@
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab.selected {
 text-decoration: underline;
 text-decoration-color: red;
-text-decoration-thickness: 5px;
+text-decoration-thickness: 3px;
 }
