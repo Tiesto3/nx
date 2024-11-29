@@ -5,3 +5,11 @@
 
 .theme-entry { --heading2-text-color: "red";}
 
+@font-face {
+    font-family: 'BLK Fort';
+    src: url('BLKFort-Book.woff2') format('woff2'),
+        url('BLKFort-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
